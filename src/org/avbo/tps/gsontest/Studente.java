@@ -1,5 +1,6 @@
 package org.avbo.tps.gsontest;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Studente {
@@ -20,5 +21,14 @@ public class Studente {
 	
 	public Studente() {};
 	
-	
+	@Override
+	public String toString() {
+		var allData = new ArrayList<String>();
+		allData.add(matricola + "");
+		allData.add(cognome);
+		allData.add(nome);
+		allData.add(nazionalita);
+		allData.add(dataDiNascita.toString());
+		return String.join(" ", allData);
+	}
 }

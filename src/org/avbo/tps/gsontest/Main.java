@@ -8,7 +8,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder()
+				   .setDateFormat("yyyy MM dd").create();
 		
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, 2005);
@@ -21,6 +22,14 @@ public class Main {
 		String json = gson.toJson(prova);
 		
 		System.out.println(json);
+		
+		
+		
+		String provaRead = "{\"nome\":\"Matteo\",\"cognome\":\"Kamal\",\"matricola\":212,\"dataDiNascita\":\"2005 10 16\",\"nazionalita\":\"italiana\"}";
+		System.out.println(provaRead);
+		
+		var prova2 = gson.fromJson(provaRead, Studente.class);
+		System.out.println(prova2.toString());
 	}
 
 }
